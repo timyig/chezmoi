@@ -9,13 +9,15 @@ extensions. Other extensions require an interpreter, which must be in your
 
 The default script interpreters are:
 
-| Extension | Command      | Arguments |
-| --------- | ------------ | --------- |
-| `.nu`     | `nu`         | *none*    |
-| `.pl`     | `perl`       | *none*    |
-| `.py`     | `python3`    | *none*    |
-| `.ps1`    | `powershell` | `-NoLogo` |
-| `.rb`     | `ruby`       | *none*    |
+| Extension | Command            | Arguments                   |
+| --------- | ------------------ | --------------------------- |
+| `.nu`     | `nu`               | *none*                      |
+| `.pl`     | `perl`             | *none*                      |
+| `.py`     | `python3`          | *none*                      |
+| `.ps1`    | `powershell`       | `-NoLogo`                   |
+| `.rb`     | `ruby`             | *none*                      |
+| `.yaml`   | `ansible-playbook` | `-i localhost, -c local`    |
+| `.yml`    | `ansible-playbook` | `-i localhost, -c local`    |
 
 Script interpreters can be added or overridden by adding the corresponding
 extension (without the leading dot) as a key under the `interpreters`

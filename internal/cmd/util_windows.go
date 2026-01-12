@@ -32,6 +32,14 @@ var defaultInterpreters = map[string]chezmoi.Interpreter{
 	"rb": {
 		Command: "ruby",
 	},
+	"yaml": {
+		Command: "ansible-playbook",
+		Args:    []string{"-i", "localhost,", "-c", "local"},
+	},
+	"yml": {
+		Command: "ansible-playbook",
+		Args:    []string{"-i", "localhost,", "-c", "local"},
+	},
 }
 
 func windowsVersion() (map[string]any, error) {
