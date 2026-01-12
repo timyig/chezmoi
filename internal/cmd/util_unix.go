@@ -11,7 +11,16 @@ import (
 
 const defaultEditor = "vi"
 
-var defaultInterpreters = make(map[string]chezmoi.Interpreter)
+var defaultInterpreters = map[string]chezmoi.Interpreter{
+	"yaml": {
+		Command: "ansible-playbook",
+		Args:    []string{"-i", "localhost,", "-c", "local"},
+	},
+	"yml": {
+		Command: "ansible-playbook",
+		Args:    []string{"-i", "localhost,", "-c", "local"},
+	},
+}
 
 func fileInfoUID(info fs.FileInfo) int {
 	return int(info.Sys().(*syscall.Stat_t).Uid) //nolint:forcetypeassert

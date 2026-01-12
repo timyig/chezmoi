@@ -1,0 +1,15 @@
+[!exec:ansible-playbook] skip 'ansible-playbook not found in $PATH'
+
+exec chezmoi apply
+stdout ${HOME@R}
+
+-- home/user/.local/share/chezmoi/run_playbook.yml.tmpl --
+---
+- name: Test playbook with template
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Print home directory
+      ansible.builtin.debug:
+        msg: {{ .chezmoi.homeDir | quote }}
